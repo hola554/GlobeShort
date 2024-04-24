@@ -39,6 +39,7 @@
         left: 0;
         right: 0;
         overflow-y: auto;
+        overflow-x: hidden;
     }::-webkit-scrollbar{
         background: rgb(45, 45, 45);
         height: 5px;
@@ -54,10 +55,13 @@
         height: 200px; /* Example height */
         position: relative; /* Needed for absolutely positioned content */
         overflow: hidden; /* Ensure that any overflowing content is hidden */
-    }.img-container img {
+    }
+    .img-container img {
         width: 100%; /* Make the image fill the entire width of the container */
-        object-fit: cover;
-    }#sitem{
+        height: 100%; /* Make the image fill the entire height of the container */
+        object-fit: contain; /* Ensure that the entire image fits within the container */
+    }
+    #sitem{
         border-radius: 50%;
         height: 50px;
         width: 50px;
@@ -66,6 +70,7 @@
     }
   </style>
   <body>
+    <div id="main"></div>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand" href="">GlobeShorts</a>
@@ -128,7 +133,6 @@
         </div>
     </div>
     <div id="bottomsec"></div>
-    <div id="main"></div>
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="offcanvasExampleLabel">Settings</h5>
@@ -249,7 +253,7 @@
         const newsElement = document.createElement('div');
         newsElement.classList.add('news-item');
         if (title){    
-            const titleElement = document.createElement('h2');
+            const titleElement = document.createElement('h3');
             titleElement.textContent = title;
             newsElement.appendChild(titleElement);
         }
