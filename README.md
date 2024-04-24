@@ -1,2 +1,2 @@
 # GlobeShort
-made by jess and surya
+made by jess and yash
