@@ -9,7 +9,7 @@
   <style>
     body{
         overflow: hidden;
-    }
+    }a{text-decoration: none;}
     #load{
         background-image: linear-gradient(to right, cyan, blue);
         height: 3px;
@@ -60,6 +60,7 @@
         width: 100%; /* Make the image fill the entire width of the container */
         height: 100%; /* Make the image fill the entire height of the container */
         object-fit: contain; /* Ensure that the entire image fits within the container */
+        aspect-ratio: 1/5;
     }
     #sitem{
         border-radius: 50%;
@@ -67,6 +68,14 @@
         width: 50px;
         border: none;
         background: none;
+    }.news-item{
+        filter: blur(45%);
+        border: 1px solid white;
+        border-radius: 10px;
+        height: fit-content;
+        width: 80%;
+        margin: 10%;
+        overflow: hidden;
     }
   </style>
   <body>
@@ -324,7 +333,6 @@
         if (imageUrl){
             const imageElement = document.createElement('img');
             imageElement.src = imageUrl;
-            imageElement.alt = title;
             newsElement.appendChild(imageElement);
         }
         if (articleUrl){
