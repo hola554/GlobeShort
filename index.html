@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GlobeShorts | A NEWS APP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <style>
+    body{
+        overflow: hidden;
+    }
+    #load{
+        background-image: linear-gradient(to right, cyan, blue);
+        height: 3px;
+        width: 100%;
+        position: absolute;
+        top: 55px;
+        left: 0;
+    }#bottom{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 50px;
+        width: 100%;
+        display: grid;
+        place-items: center;
+    }#bottomsec{
+        background-image: linear-gradient(to right, cyan, blue);
+        height: 3px;
+        width: 100%;
+        position: absolute;
+        bottom: 50px;
+        left: 0;
+    }#main{
+        position: absolute;
+        top: 58px;
+        bottom: 53px;
+        left: 0;
+        right: 0;
+        overflow-y: auto;
+    }::-webkit-scrollbar{
+        background: rgb(45, 45, 45);
+        height: 5px;
+        width: 3px;
+    }::-webkit-scrollbar-thumb{
+        background: cyan;
+    }::-webkit-scrollbar-thumb:hover{
+        background: rgb(0, 107, 107);
+    }.color_text {
+        text-shadow: 0 0 3px rgb(0, 255, 255), 0 0 5px #0000FF;
+    }.img-container {
+        width: 300px; /* Example width */
+        height: 200px; /* Example height */
+        position: relative; /* Needed for absolutely positioned content */
+        overflow: hidden; /* Ensure that any overflowing content is hidden */
+    }.img-container img {
+        width: 100%; /* Make the image fill the entire width of the container */
+        object-fit: cover;
+    }#sitem{
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+        border: none;
+        background: none;
+    }
+  </style>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="">GlobeShorts</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+    <div id="load"></div>
+    <div id="bottom">
+        <div style="display: flex; place-items: center;">
+            <button class="btn" onclick="home()">
+                <i class="bi bi-house"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                    <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
+                </svg>
+            </button>
+            <button class="btn" onclick="about()">
+                <i class="bi bi-info-circle"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                    <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                </svg>
+            </button>
+            <button class="btn" onclick="preferances()">
+                <i class="bi bi-heart"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                </svg>
+            </button>
+            <button class="btn">
+                <i class="bi bi-person-circle"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                </svg>
+            </button>
+            <button class="btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                <i class="bi bi-three-dots-vertical"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                    <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div id="bottomsec"></div>
+    <div id="main"></div>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Settings</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div>
+            You can customise settings here.
+          </div>
+          <div class="dropdown mt-3">
+            <b>Apperance</b>
+            <br>
+            <button class="btn" id="theme" onclick="switchtheme()">
+                <i class="bi bi-moon-stars"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon-stars" viewBox="0 0 16 16">
+                    <path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278M4.858 1.311A7.27 7.27 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.32 7.32 0 0 0 5.205-2.162q-.506.063-1.029.063c-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286"/>
+                    <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.73 1.73 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.73 1.73 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.73 1.73 0 0 0 1.097-1.097zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z"/>
+                </svg>
+                Dark
+            </button>
+          </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+  <script>
+    let search = 'technology';
+    function changetopic(topic){
+        search = topic;
+        document.getElementById('main').innerHTML='';
+        fetchNews();
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+        fetchNews();
+    });
+    function preferances(){
+        document.getElementById('main').innerHTML=`
+        <br>
+        <input type="text" class="form-control" placeholder="technolgy | sports | pollitics | Etc." aria-label="Search topics" aria-describedby="basic-addon1">
+        <br>
+        <div class="dropdown mt-3" style="display:grid; place-items:center;">
+            <div style="display:flex; place-items:center; width:100%;">
+                <button class="btn" onclick="changetopic('war')">
+                    <img src="https://cdn.pixabay.com/photo/2014/10/02/06/34/war-469503_960_720.jpg" id="sitem">
+                    <br>
+                    War
+                </button>
+                <button class="btn" onclick="changetopic('government')">
+                    <img src="https://cdn.pixabay.com/photo/2020/04/14/15/35/capital-5043172_1280.jpg" id="sitem">
+                    <br>
+                    Government
+                </button>
+                <button class="btn" onclick="changetopic('politics')">
+                    <img src="https://cdn.pixabay.com/photo/2017/08/03/11/05/people-2575608_960_720.jpg" id="sitem">
+                    <br>
+                    Politics
+                </button>
+            </div>
+            <div style="display:flex; place-items:center; width:100%;">
+                <button class="btn" onclick="changetopic('education')">
+                    <img src="https://cdn.pixabay.com/photo/2020/05/23/20/08/books-5211309_640.jpg" id="sitem">
+                    <br>
+                    Education
+                </button>
+                <button class="btn" onclick="changetopic('health')">
+                    <img src="https://cdn.pixabay.com/photo/2016/08/10/20/26/blood-pressure-1584223_640.jpg" id="sitem">
+                    <br>
+                    Health
+                </button>
+                <button class="btn" onclick="changetopic('environment')">
+                    <img src="https://cdn.pixabay.com/photo/2016/11/08/04/49/jungle-1807476_640.jpg" id="sitem">
+                    <br>
+                    Environment
+                </button>
+            </div>
+            <div style="display:flex; place-items:center; width:100%;">
+                <button class="btn" onclick="changetopic('business')">
+                    <img src="https://cdn.pixabay.com/photo/2017/01/14/10/56/people-1979261_640.jpg" id="sitem">
+                    <br>
+                    Business
+                </button>
+                <button class="btn" onclick="changetopic('fashion')">
+                    <img src="https://cdn.pixabay.com/photo/2016/07/11/15/43/woman-1509956_640.jpg" id="sitem">
+                    <br>
+                    Fashion
+                </button>
+                <button class="btn" onclick="changetopic('entertainment')">
+                    <img src="https://cdn.pixabay.com/photo/2017/04/10/16/55/live-music-2219036_640.jpg" id="sitem">
+                    <br>
+                    Entertainment
+                </button>
+            </div>
+        </div>
+        `;
+    }
+    async function fetchNews() {
+        const API_KEY = 'pub_426056178ad9452ea56aff1255185cf0348fc';
+        const API_URL = 'https://newsdata.io/api/1/news?apikey=' + API_KEY + "&q="+search;
+
+        try {
+            const response = await fetch(API_URL);
+            const data = await response.json();
+
+            // Check if data.results exists and is an array before iterating over it
+            if (data.results && Array.isArray(data.results)) {
+                data.results.forEach(article => {
+                    appendNews(article.title, article.content, article.image_url, article.link);
+                });
+            } else {
+                console.error('Error: Unable to find news articles in the response.');
+            }
+        } catch (error) {
+            console.error('Error fetching news:', error);
+        }
+    }
+    function appendNews(title, content, imageUrl, articleUrl) {
+        const mainElement = document.getElementById('main');
+        const newsElement = document.createElement('div');
+        newsElement.classList.add('news-item');
+        if (title){    
+            const titleElement = document.createElement('h2');
+            titleElement.textContent = title;
+            newsElement.appendChild(titleElement);
+        }
+        if (content){
+            const contentElement = document.createElement('p');
+            contentElement.textContent = content;
+            newsElement.appendChild(contentElement);
+        }
+        if (imageUrl){
+            const imageElement = document.createElement('img');
+            imageElement.src = imageUrl;
+            imageElement.alt = title;
+            newsElement.appendChild(imageElement);
+        }
+        if (articleUrl){
+            const linkElement = document.createElement('a');
+            linkElement.href = articleUrl;
+            linkElement.textContent = "Read more";
+            newsElement.appendChild(linkElement);
+        }
+        mainElement.appendChild(newsElement);
+    }
+    function home(){
+        window.location.reload();
+    }function about(){
+        document.getElementById('main').innerHTML=`
+        
+        `;
+    }
+    function switchtheme(){
+        var body = document.body.getAttribute('data-bs-theme');
+        var btn = document.getElementById('theme');
+        if (body === 'dark'){
+            document.body.setAttribute('data-bs-theme', '');
+            btn.innerHTML=`
+            <i class="bi bi-moon-stars"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon-stars" viewBox="0 0 16 16">
+                <path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278M4.858 1.311A7.27 7.27 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.32 7.32 0 0 0 5.205-2.162q-.506.063-1.029.063c-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286"/>
+                <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.73 1.73 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.73 1.73 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.73 1.73 0 0 0 1.097-1.097zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z"/>
+            </svg>
+            Dark
+            `;
+        }else{
+            document.body.setAttribute('data-bs-theme', 'dark');
+            btn.innerHTML=`
+            <i class="bi bi-brightness-high"></i>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-brightness-high" viewBox="0 0 16 16">
+                <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"/>
+            </svg>
+            Light
+            `;
+        }
+    }
+  </script>
+</html>
