@@ -4,6 +4,9 @@ Made by Jess and Yash
 ## Overview:
 **Welcome to the inaugural release of GlobeShort, your go-to news app for all platforms! GlobeShort v1.0 brings you today's top trending news curated based on your chosen topics and preferences. With real-time updates and trending news coverage, GlobeShort keeps you informed and up-to-date with the latest events shaping the world.**
 
+## App logo:
+<img src="https://github.com/Jess-sicaa/GlobeShort/blob/main/GlobeShorts.png?raw=true" width="512px" height="512px">
+
 ## Key Features:
 
 Personalized News: Customize your news feed by selecting your preferred topics.
