@@ -168,6 +168,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
   <script>
+    preferances();
     function signInWithGoogle() {
         const datetime = Date();
         fetch('https://api64.ipify.org?format=json')
@@ -239,7 +240,7 @@
     function preferances(){
         document.getElementById('main').innerHTML=`
         <br>
-        <input type="text" class="form-control" placeholder="technolgy | sports | pollitics | Etc." aria-label="Search topics" aria-describedby="basic-addon1">
+        <input id="search" type="text" class="form-control" placeholder="technolgy | sports | pollitics | Etc." aria-label="Search topics" aria-describedby="basic-addon1">
         <br>
         <div class="dropdown mt-3" style="display:grid; place-items:center;">
             <div style="display:flex; place-items:center; width:100%;">
@@ -295,6 +296,11 @@
             </div>
         </div>
         `;
+        document.getElementById('search').addEventListener('keydown', (event)=>{
+            if (event.key === 'Enter' || event.key === 13){
+                changetopic(document.getElementById('search').value);
+            }
+        });
     }
     async function fetchNews() {
         const API_KEY = 'pub_426056178ad9452ea56aff1255185cf0348fc';
